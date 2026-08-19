@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 import AppHeader from './components/AppHeader.vue'
 import StudentForm from './components/StudentForm.vue'
@@ -13,32 +13,12 @@ const searchTerm = ref('')
 const editingId = ref(null)
 const studentToEdit = ref(null)
 const message = ref('')
-const isDarkMode = ref(false)
 
 onMounted(() => {
   const saved = localStorage.getItem('student-management-records')
+
   students.value = saved ? JSON.parse(saved) : []
-
-  const savedTheme = localStorage.getItem('theme-mode')
-  if (savedTheme) {
-    isDarkMode.value = savedTheme === 'dark'
-  } else {
-    isDarkMode.value = window.matchMedia('(prefers-color-scheme: dark)').matches
-  }
 })
-
-watch(isDarkMode, (newVal) => {
-  localStorage.setItem('theme-mode', newVal ? 'dark' : 'light')
-  if (newVal) {
-    document.documentElement.classList.add('dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-  }
-}, { immediate: true })
-
-function toggleTheme() {
-  isDarkMode.value = !isDarkMode.value
-}
 
 function saveStudents() {
   localStorage.setItem(
@@ -141,18 +121,18 @@ const filteredStudents = computed(() => {
 </script>
 
 <template>
-  <div :class="isDarkMode ? 'dark' : ''" class="min-h-screen">
-    <div :class="isDarkMode ? 'bg-gray-900' : 'bg-gray-100'" class="min-h-screen transition-colors duration-300">
-      <AppHeader :is-dark-mode="isDarkMode" @toggle-theme="toggleTheme" />
+  <div class="min-h-screen bg-gray-100">
+
+    <AppHeader />
 
     <main class="max-w-6xl mx-auto px-4 py-8">
 
       <div class="mb-8">
-        <h2 class="text-2xl font-bold text-gray-800 dark:text-white">
+        <h2 class="text-2xl font-bold text-gray-800">
           Student Records
         </h2>
 
-        <p class="text-gray-600 dark:text-gray-400 mt-2">
+        <p class="text-gray-600 mt-2">
           Manage student information using a simple CRUD system.
         </p>
       </div>
@@ -161,12 +141,10 @@ const filteredStudents = computed(() => {
 
       <div
         v-if="message"
-        class="bg-green-100 dark:bg-green-900 border border-green-300 dark:border-green-700 text-green-700 dark:text-green-200 rounded-lg p-4 mb-6 transition-colors duration-300"
+        class="bg-green-100 border border-green-300 text-green-700 rounded-lg p-4 mb-6"
       >
         {{ message }}
       </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
         <div>
           <StudentForm
@@ -178,9 +156,9 @@ const filteredStudents = computed(() => {
 
         <div class="lg:col-span-2">
 
-          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-6 transition-colors duration-300">
+          <div class="bg-white rounded-xl shadow-md p-6 mb-6">
 
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label class="block text-sm font-medium text-gray-700 mb-2">
               Search Student
             </label>
 
@@ -188,7 +166,7 @@ const filteredStudents = computed(() => {
               v-model="searchTerm"
               type="text"
               placeholder="Search by name or student number..."
-              class="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 dark:placeholder-gray-500 transition-colors"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
           </div>
@@ -205,7 +183,7 @@ const filteredStudents = computed(() => {
 
     </main>
 
-      <AppFooter />
-    </div>
+    <AppFooter />
+
   </div>
 </template>
