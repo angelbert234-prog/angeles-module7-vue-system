@@ -5,6 +5,8 @@ import AppHeader from './components/AppHeader.vue'
 import StudentForm from './components/StudentForm.vue'
 import StudentList from './components/StudentList.vue'
 import AppFooter from './components/AppFooter.vue'
+import studentsummary from './components/studentsummary.vue'
+
 
 const students = ref([])
 const searchTerm = ref('')
@@ -134,6 +136,8 @@ const filteredStudents = computed(() => {
           Manage student information using a simple CRUD system.
         </p>
       </div>
+
+      <studentsummary :students="students" />
 
       <div
         v-if="message"
