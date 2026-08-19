@@ -7,7 +7,6 @@ import StudentList from './components/StudentList.vue'
 import AppFooter from './components/AppFooter.vue'
 import studentsummary from './components/studentsummary.vue'
 
-
 const students = ref([])
 const searchTerm = ref('')
 const editingId = ref(null)
@@ -145,6 +144,8 @@ const filteredStudents = computed(() => {
       >
         {{ message }}
       </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
         <div>
           <StudentForm

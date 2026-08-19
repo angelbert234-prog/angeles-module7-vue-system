@@ -154,14 +154,5 @@ function clearForm() {
       </div>
 
     </form>
-
-  </section>
-</template>
-        >
-          Cancel
-        </button>
-      </div>
-
-    </form>
   </section>
 </template>
