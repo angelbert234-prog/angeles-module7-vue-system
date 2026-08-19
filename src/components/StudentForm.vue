@@ -65,14 +65,14 @@ function clearForm() {
 </script>
 
 <template>
-  <section class="bg-white rounded-xl shadow-md p-6">
-    <h2 class="text-xl font-bold text-gray-800 mb-5">
+  <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transition-colors duration-300">
+    <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-5">
       {{ studentToEdit ? 'Edit Student' : 'Add Student' }}
     </h2>
 
     <div
       v-if="errorMessage"
-      class="bg-red-100 text-red-700 border border-red-300 rounded-lg p-3 mb-4"
+      class="bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-200 border border-red-300 dark:border-red-700 rounded-lg p-3 mb-4"
     >
       {{ errorMessage }}
     </div>
@@ -80,7 +80,7 @@ function clearForm() {
     <form @submit.prevent="submitForm" class="space-y-4">
 
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
           Student Number
         </label>
 
@@ -88,12 +88,12 @@ function clearForm() {
           v-model="studentNumber"
           type="text"
           placeholder="Enter student number"
-          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 dark:placeholder-gray-500 transition-colors"
         />
       </div>
 
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
           Student Name
         </label>
 
@@ -101,12 +101,12 @@ function clearForm() {
           v-model="name"
           type="text"
           placeholder="Enter student name"
-          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 dark:placeholder-gray-500 transition-colors"
         />
       </div>
 
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
           Program
         </label>
 
@@ -114,18 +114,18 @@ function clearForm() {
           v-model="program"
           type="text"
           placeholder="Example: BSCS"
-          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 dark:placeholder-gray-500 transition-colors"
         />
       </div>
 
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
           Year Level
         </label>
 
         <select
           v-model="yearLevel"
-          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
         >
           <option value="">Select year level</option>
           <option value="1st Year">1st Year</option>
@@ -138,7 +138,7 @@ function clearForm() {
       <div class="flex gap-3">
         <button
           type="submit"
-          class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg"
+          class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
         >
           {{ studentToEdit ? 'Update Student' : 'Add Student' }}
         </button>
@@ -147,7 +147,16 @@ function clearForm() {
           v-if="studentToEdit"
           type="button"
           @click="emit('cancel')"
-          class="bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg"
+          class="bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+        >
+          Cancel
+        </button>
+      </div>
+
+    </form>
+
+  </section>
+</template>
         >
           Cancel
         </button>
