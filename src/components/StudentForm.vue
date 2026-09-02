@@ -45,6 +45,11 @@ function submitForm() {
     return
   }
 
+  if (!/^\d{8}$/.test(studentNumber.value.trim())) {
+    errorMessage.value = 'Student number must contain exactly 8 digits.'
+    return
+  }
+
   emit('save', {
     studentNumber: studentNumber.value.trim(),
     name: name.value.trim(),
@@ -88,6 +93,10 @@ function clearForm() {
           v-model="studentNumber"
           type="text"
           placeholder="Enter student number"
+          inputmode="numeric"
+          pattern="[0-9]{8}"
+          maxlength="8"
+          title="Student number must contain exactly 8 digits"
           class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>

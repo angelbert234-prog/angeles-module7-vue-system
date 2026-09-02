@@ -72,7 +72,7 @@ const emit = defineEmits(['edit', 'delete'])
                 </button>
 
                 <button
-                  @click="emit('delete', student.id)"
+                  @click="emit('delete', student)"
                   class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded"
                 >
                   Delete
