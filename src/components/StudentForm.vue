@@ -1,3 +1,4 @@
+```vue
 <script setup>
 import { ref, watch } from 'vue'
 
@@ -35,26 +36,37 @@ watch(
 function submitForm() {
   errorMessage.value = ''
 
+  const trimmedStudentNumber = studentNumber.value.trim()
+  const trimmedName = name.value.trim()
+  const trimmedProgram = program.value.trim()
+  const trimmedYearLevel = yearLevel.value.trim()
+
   if (
-    !studentNumber.value.trim() ||
-    !name.value.trim() ||
-    !program.value.trim() ||
-    !yearLevel.value.trim()
+    !trimmedStudentNumber ||
+    !trimmedName ||
+    !trimmedProgram ||
+    !trimmedYearLevel
   ) {
     errorMessage.value = 'Please complete all required fields.'
     return
   }
 
-  if (!/^\d{8}$/.test(studentNumber.value.trim())) {
+  if (!/^\d{8}$/.test(trimmedStudentNumber)) {
     errorMessage.value = 'Student number must contain exactly 8 digits.'
     return
   }
 
+  if (!/^[A-Za-zÀ-ÖØ-öø-ÿ.' -]+$/.test(trimmedName)) {
+    errorMessage.value =
+      'Student name must contain letters, spaces, periods, hyphens, or apostrophes only.'
+    return
+  }
+
   emit('save', {
-    studentNumber: studentNumber.value.trim(),
-    name: name.value.trim(),
-    program: program.value.trim(),
-    yearLevel: yearLevel.value.trim()
+    studentNumber: trimmedStudentNumber,
+    name: trimmedName,
+    program: trimmedProgram,
+    yearLevel: trimmedYearLevel
   })
 
   clearForm()
@@ -83,7 +95,6 @@ function clearForm() {
     </div>
 
     <form @submit.prevent="submitForm" class="space-y-4">
-
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">
           Student Number
@@ -161,7 +172,7 @@ function clearForm() {
           Cancel
         </button>
       </div>
-
     </form>
   </section>
 </template>
+```

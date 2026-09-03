@@ -37,7 +37,7 @@ The student record is deleted successfully, but the displayed record count does 
 ### Evidence
 
 **Screenshot Filename:** `TC-006-cancel-record.png`
-**Screenshot Filename:** `TC-005-edit-records.png`
+**Screenshot Filename:** `TC-007-confirm-delete.png`
 
 
 The screenshot should show the student list and the incorrect record count after the deletion.

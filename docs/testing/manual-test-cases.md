@@ -30,14 +30,16 @@
 4. Click the Add/Save button.
 5. Check the student list.
 
-**Expected Result:**
-The student record is successfully saved and displayed in the student list.
 
-**Actual Result:** ______________________________
+**Actual Result:**
+The system successfully added a new student record. A green confirmation message "Student successfully added!" appeared, and the Student Records table and summary counts updated correctly to reflect the new total of 3 students.
 
-**Status:** PASS / FAIL / BLOCKED / NOT RUN
+**Status:** Pass
 
-**Evidence Filename:** `TC-001-valid-add.png`
+**Date:** September 2, 2026
+
+**Evidence Filename:** ![TC-001 Evidence](../Screenshots/TC-001-valid-add.png)
+
 
 ---
 
@@ -67,14 +69,15 @@ The student record is successfully saved and displayed in the student list.
 4. Click Add/Save.
 5. Observe the result.
 
-**Expected Result:**
-The record is not saved and a validation message is displayed.
 
-**Actual Result:** ______________________________
+**Actual Result:** 
+The system correctly rejected the empty submission and displayed the validation message "Please complete all required fields." No new record was added to the table.
 
-**Status:** PASS / FAIL / BLOCKED / NOT RUN
+**Status:** Pass
 
-**Evidence Filename:** `TC-002-empty-fields.png`
+**Date:** September 2, 2026
+
+**Evidence Filename:** ![TC-002 Evidence](../Screenshots/TC-002-empty-fields.png)
 
 ---
 
@@ -101,14 +104,14 @@ The record is not saved and a validation message is displayed.
 4. Click Add/Save.
 5. Observe the system response.
 
-**Expected Result:**
-The system rejects the invalid input or displays appropriate validation feedback.
+**Actual Result:** 
+The system correctly validated the Student Number field. Entering a 7-digit number triggered the format warning "Please match the requested format. Student number must contain exactly 8 digits," and the record was not submitted.
 
-**Actual Result:** ______________________________
+**Status: Pass**
 
-**Status:** PASS / FAIL / BLOCKED / NOT RUN
+**Date: September 2, 2026**
 
-**Evidence Filename:** `TC-003-invalid-data.png`
+**Evidence Filename:** ![TC-003 Evidence](../Screenshots/TC-003-invalid-data.png)
 
 ---
 
@@ -138,15 +141,14 @@ The system rejects the invalid input or displays appropriate validation feedback
 3. Add the third valid student.
 4. View the student list.
 
-**Expected Result:**
-All successfully added student records are displayed correctly.
+**Actual Result:**
+The system correctly handled multiple student entries. All five records were added and displayed accurately in the Student Records table, with the summary panel correctly reflecting Total Students: 5 and the correct per-year-level breakdown.
 
-**Actual Result:** ______________________________
+**Status: Pass**
 
-**Status:** PASS / FAIL / BLOCKED / NOT RUN
+Date: September 2, 2026
 
-**Evidence Filename:** `TC-004-multiple-records.png`
-
+**Evidence Filename:** ![TC-004 Evidence](../Screenshots/TC-004-multiple-records.png)
 ---
 
 ### TC-05 – Edit an Existing Student
@@ -173,14 +175,14 @@ All successfully added student records are displayed correctly.
 5. Click Save/Update.
 6. Check the student list.
 
-**Expected Result:**
-The updated information replaces the previous information and is displayed correctly.
+**Actual Result:**
+The system successfully updated an existing student record. A green confirmation message "Student successfully updated!" appeared, and the edited record (Raymond, 51212025) displayed the corrected details in the table.
 
-**Actual Result:** ______________________________
+**Status: Pass**
 
-**Status:** PASS / FAIL / BLOCKED / NOT RUN
+**Date:** September 2, 2026
 
-**Evidence Filename:** `TC-005-edit-records.png`
+**Evidence Filename:** ![TC-005 Evidence](../Screenshots/TC-005-edit-records.png)
 
 ---
 
@@ -201,15 +203,14 @@ The updated information replaces the previous information and is displayed corre
 3. When the confirmation appears, click Cancel.
 4. Check the student list.
 
-**Expected Result:**
-The student record remains in the system and is not deleted.
+**Actual Result:** 
+The system correctly displayed a confirmation modal ("Delete Student Record") before deletion, showing the target record's details (fsjfjsdf, Student Number 54541212, bbdc, 4th Year) with Cancel and Delete Record options, allowing the deletion to be cancelled before it is finalized.
 
-**Actual Result:** ______________________________
+**Status: Pass**
 
-**Status:** PASS / FAIL / BLOCKED / NOT RUN
+**Date: September 2, 2026**
 
-**Evidence Filename:** `TC-006-cancel-record.png`
-
+**Evidence Filename:** ![TC-006 Evidence](../Screenshots/TC-006-cancel-record.png)
 ---
 
 ### TC-07 – Confirm Student Deletion
@@ -232,12 +233,14 @@ The student record remains in the system and is not deleted.
 **Expected Result:**
 The selected student record is removed from the student list.
 
-**Actual Result:** ______________________________
+**Actual Result:**
+The system successfully deleted the selected student record after confirmation. A green message "Student successfully deleted!" appeared, and the total student count updated correctly from 5 to 4.
 
-**Status:** PASS / FAIL / BLOCKED / NOT RUN
+**Status:** PASS 
 
-**Evidence Filename:** `TC-007-confirm-delete.png`
+**Date:** September 2, 2026
 
+**Evidence Filename:** ![TC-007 Evidence](../Screenshots/TC-007-confirm-delete.png)
 ---
 
 ### TC-08 – Search for an Existing Student
@@ -264,12 +267,14 @@ The selected student record is removed from the student list.
 **Expected Result:**
 The matching student record is displayed.
 
-**Actual Result:** ______________________________
+**Actual Result:**
+ The system correctly returned a matching result when searching for an existing student. Searching "rochelle" returned exactly 1 matching record (Rochelle, 60692024, BSED, 2nd Year).
 
-**Status:** PASS / FAIL / BLOCKED / NOT RUN
+**Status:** Pass
 
-**Evidence Filename:** `TC-008-search-existing.png`
+**Date:** September 2, 2026
 
+**Evidence Filename:** ![TC-008 Evidence](../Screenshots/TC-008-search-existing.png)
 ---
 
 ### TC-09 – Search for a Missing Student
@@ -296,11 +301,14 @@ The matching student record is displayed.
 **Expected Result:**
 No matching student records are displayed and an appropriate no-results state or message appears.
 
-**Actual Result:** ______________________________
+**Actual Result:**
+ The system correctly handled a search with no matches. Searching "Mendoza" returned 0 student(s) and displayed the message "No student records found."
 
-**Status:** PASS / FAIL / BLOCKED / NOT RUN
+**Status:** Pass
 
-**Evidence Filename:** `TC-009-search-missing.png`
+**Date:** September 2, 2026
+
+**Evidence Filename:** ![TC-009 Evidence](../Screenshots/TC-009-search-missing.png)
 
 ---
 
@@ -327,14 +335,14 @@ No matching student records are displayed and an appropriate no-results state or
 3. Refresh the browser.
 4. Check the student list again.
 
-**Expected Result:**
-The previously saved student record remains available after the browser is refreshed.
+**Actual Result:** 
+The system correctly persisted student data using browser local storage. DevTools confirmed the key "student-management-records" was stored under Local Storage with the full array of student record data intact.
 
-**Actual Result:** ______________________________
+**Status: Pass**
 
-**Status:** PASS / FAIL / BLOCKED / NOT RUN
+**Date:** September 2, 2026
 
-**Evidence Filename:** `TC-0010-local-storage.png`
+**Evidence Filename:** ![TC-0010 Evidence](../Screenshots/TC-0010-local-storage.png)
 
 ---
 
@@ -358,11 +366,13 @@ The previously saved student record remains available after the browser is refre
 **Expected Result:**
 The content remains readable and the main controls remain usable without inappropriate layout problems.
 
-**Actual Result:** ______________________________
+**Actual Result:**
+ The system correctly adapted its layout to a narrower mobile viewport. The header, summary cards, and Add Student form stacked and resized appropriately without breaking or overlapping content.
 
-**Status:** PASS / FAIL / BLOCKED / NOT RUN
+**Status:** Pass
+**Date:** September 2, 2026
 
-**Evidence Filename:** `TC-0011-responsive-layout.png`
+**Evidence Filename:** ![TC-0011 Evidence](../Screenshots/TC-0011-responsive-layout.png)
 
 ### TC-12 – Verify Record Count Feedback
 
@@ -395,12 +405,14 @@ The content remains readable and the main controls remain usable without inappro
 
 The system displays accurate record-count feedback. The count increases when a student is successfully added and decreases when a student is successfully deleted.
 
-**Actual Result:**
+**Actual Result:** 
+The system correctly displayed real-time record count feedback. The Student Summary panel accurately showed 1st Year: 1, 2nd Year: 1, 3rd Year: 2, 4th Year: 0, and Total Students: 4, matching the actual records in the table.
 
----
+**Status: Pass**
 
-**Status:** PASS / FAIL / BLOCKED / NOT RUN
+**Date:** September 2, 2026
 
-**Evidence Filename:** `TC-0012-record-count-feedback.png`
+
+**Evidence Filename:** ![TC-0012 Evidence](../Screenshots/TC-0012-record-count-feedback.png)
 
 ---
